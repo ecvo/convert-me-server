@@ -5,7 +5,8 @@ Server-side application for ConvertMe app. Developed by using [NodeJS](https://n
 To build the project follow simple steps:
   1. Make sure that [NodeJS](https://nodejs.org/en/download/) and [npm](https://www.npmjs.com/get-npm) installed.
   2. Install required packages ```npm install express``` ```npm install express-fileupload``` ```npm install zip-local```
-  3. Run server ```node index```
+  3. Install [Python](https://www.python.org) and [PyPandoc](https://pypi.org/project/pypandoc/)
+  4. Run server ```node index```
 
  # Deployment
   1. Edit code of inside index.js files
