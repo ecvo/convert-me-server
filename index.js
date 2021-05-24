@@ -13,10 +13,12 @@ app.use('/', express.static(__dirname + 'dist'));
 app.use(fileUpload());
 
 app.post('/upload', async function (req, res) {
+  console.dir(req.ip)
   let sampleFile;
   let uploadPath;
 
-  console.log('req.files >>>', req.files); // eslint-disable-line
+
+  console.log(`req.files >>>`,req.files) // eslint-disable-line
 
   const directory = __dirname + '/uploads';
 
@@ -59,7 +61,7 @@ app.post('/upload', async function (req, res) {
       }
       const { spawn } = require('child_process');
       const pyProg = spawn('python', ['script.py']);
-      console.log("converted");
+      console.log(`converted`);
     }, 1000);
 });
 
