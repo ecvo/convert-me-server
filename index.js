@@ -9,7 +9,7 @@ const app = express();
 
 
 const PORT = 8000;
-app.use('/', express.static(__dirname + 'dist'));
+app.use('/', express.static(__dirname + '/dist'));
 
 app.use(express.json());       
 app.use(bodyParser.json());
@@ -71,20 +71,13 @@ app.post('/upload', async function (req, res) {
       const pyProg = spawn('python', ['script.py']);
       console.log(`converted`);
       setTimeout(() => {
-        //zip all /output files to .zip
-        zipper.sync.zip(__dirname + '/data/'+`/${userId}/output/`).compress().save(__dirname + '/data/'+`/${userId}/output/1.zip`);
-      }, 2000);
+        zipper.sync.zip(__dirname + '/data/'+`/${userId}/output/`).compress().save(__dirname + '/data/'+`/${userId}/output/1.zip`); //zip all /output files to .zip
+      }, 3000);
     }, 1000);
-    res.send({userId: userId})
-});
-  
-
-app.get('/download', async function (req, res) {
-  var userId = req.body.userId
-  console.log('used_id = ',userId)
-  //throw output to client-side
-  const file = `${__dirname}/data/${userId}/output/1.zip`;
-  res.sendFile(file);
+    const file = `${__dirname}/data/${userId}/output/1.zip`;
+    setTimeout(() => {
+      res.sendFile(file);
+    }, 5000);
 });
 
 app.listen(PORT, function () {
