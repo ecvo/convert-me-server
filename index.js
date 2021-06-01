@@ -73,11 +73,11 @@ app.post('/upload', async function (req, res) {
       setTimeout(() => {
         zipper.sync.zip(__dirname + '/data/'+`/${userId}/output/`).compress().save(__dirname + '/data/'+`/${userId}/output/1.zip`); //zip all /output files to .zip
       }, 3000);
-    }, 1000);
+    }, 5000);
     const file = `${__dirname}/data/${userId}/output/1.zip`;
     setTimeout(() => {
       res.sendFile(file);
-    }, 5000);
+    }, 10000);
 });
 
 app.listen(PORT, function () {
